@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="SHOPPING_API_BASE_URI">http://open.api.ebay.com/shopping</entry>
+    <entry key="SHOPPING_API_OPERATION">GetSingleItem</entry>
+    <entry key="SHOPPING_API_VERSION">967</entry>
+    <entry key="SITE_ID">0</entry>
+    <entry key="INCLUDE_SELECTOR">Description,ItemSpecifics</entry>
+</properties>
