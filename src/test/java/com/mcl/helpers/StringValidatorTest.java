@@ -7,14 +7,14 @@ public class StringValidatorTest {
 
     @Test
     public void testValidateReturnsTrueForValidInput() {
-        String input = "883929032273";
+        String input = "1234";
         Assert.assertTrue(new StringValidator(input)
                               .validate(str -> str.matches("\\d+")));
     }
 
     @Test
     public void testValidateReturnsFalseForInvalidInput() {
-        String input = "88392903227A";
+        String input = "123a";
         Assert.assertFalse(new StringValidator(input)
                                .validate(str -> str.matches("\\d+")));
     }

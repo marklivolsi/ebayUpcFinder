@@ -16,17 +16,18 @@ public class UserInputTest {
 
     @Test
     public void testGetInputReturnsCorrectValue() {
-        System.setIn(new ByteArrayInputStream("883929032273".getBytes()));
-        Assert.assertEquals("883929032273", new UserInput().getInput());
+        System.setIn(new ByteArrayInputStream("test".getBytes()));
+        Assert.assertEquals("test", new UserInput().getInput());
     }
 
     @Test
-    public void testGetMultiLineInputReturnsCorrectValue() {
+    public void testGetMultiLineInputReturnsCorrectArray() {
         ArrayList<String> testArray = new ArrayList<>();
-        testArray.add("883929032273");
-        testArray.add("093r980");
-        testArray.add("abced");
-        System.setIn(new ByteArrayInputStream("883929032273\n093r980\nabced".getBytes()));
+        testArray.add("this");
+        testArray.add("is");
+        testArray.add("test");
+        System.setIn(new ByteArrayInputStream("this\nis\ntest".getBytes()));
+        Assert.assertEquals(testArray, new UserInput().getMultiLineInput());
     }
 
 }
