@@ -21,10 +21,9 @@ public class ApiParameterStringBuilderTest {
 
     @Test
     public void testBuildReturnsProperlyFormattedString() {
-        String expected = "key+1=val1&key%242=val2&key3=val%5E3";
         ApiParameterStringBuilder builder = new ApiParameterStringBuilder(testParameters);
         String formattedParameters = builder.buildEncodedString();
-        String expectedSort = sortString(expected);
+        String expectedSort = sortString("key+1=val1&key%242=val2&key3=val%5E3");
         String actualSort = sortString(formattedParameters);
         Assert.assertEquals(expectedSort, actualSort);
     }
