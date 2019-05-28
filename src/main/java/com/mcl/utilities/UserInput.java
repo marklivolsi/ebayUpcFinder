@@ -1,4 +1,4 @@
-package com.mcl.helpers;
+package com.mcl.utilities;
 
 import java.util.ArrayList;
 import java.util.Scanner;

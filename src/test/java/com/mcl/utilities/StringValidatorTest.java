@@ -1,4 +1,4 @@
-package com.mcl.helpers;
+package com.mcl.utilities;
 
 import org.junit.Assert;
 import org.junit.Test;
