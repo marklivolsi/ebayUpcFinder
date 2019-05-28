@@ -24,9 +24,8 @@ public class AsyncProcessorTest {
     }
 
     @Test
-    public void testExecuteReturnsFutureObject() throws ExecutionException, InterruptedException {
+    public void testExecuteReturnsCorrectValue() throws ExecutionException, InterruptedException {
         AsyncProcessor processor = new AsyncProcessor();
-        TestCallable testCallable = new TestCallable(10, 20);
         Future<Integer> future = processor.execute(testCallable);
         Integer result = (Integer) processor.extract(future);
         Assert.assertEquals((Integer) 200, result);
