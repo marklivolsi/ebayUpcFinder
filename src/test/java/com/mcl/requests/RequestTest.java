@@ -8,24 +8,27 @@ import java.net.URL;
 
 public class RequestTest {
 
-    private URL testUrl;
     private Request testRequest;
 
     @Before
-    public void setTestUrl() {
+    public void setTestRequest() {
         try {
-            testUrl = new URL("https://jsonplaceholder.typicode.com/todos/1");
+            URL testUrl = new URL("https://jsonplaceholder.typicode.com/todos/1");
+            testRequest = new Request(testUrl);
         }
-        catch (Exception e) {}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void testRequestReturnsNotNullResponseObject() {
+    public void testRequestIsNotNull() {
         try {
-            Response resp = testRequest.call();
-            Assert.assertNotNull(resp);
+            Assert.assertNotNull(testRequest);
         }
-        catch (Exception e) {}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

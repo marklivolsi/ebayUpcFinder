@@ -17,7 +17,9 @@ public class ResponseTest {
             Request testRequest = new Request(url);
             testResponse = testRequest.call();
         }
-        catch (Exception e) {}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -26,7 +28,20 @@ public class ResponseTest {
             String testString = testResponse.getBodyAsString();
             Assert.assertNotNull(testString);
         }
-        catch (Exception e) {}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testGetBodyAsStringDoesNotReturnEmptyString() {
+        try {
+            String testString = testResponse.getBodyAsString();
+            Assert.assertNotEquals(0, testString.length());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
