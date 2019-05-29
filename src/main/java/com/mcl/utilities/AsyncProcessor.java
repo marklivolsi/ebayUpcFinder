@@ -3,7 +3,7 @@ package com.mcl.utilities;
 import java.util.ArrayList;
 import java.util.concurrent.*;
 
-public class AsyncProcessor<T, V> {
+public class AsyncProcessor {
 
     private ExecutorService executor;
 

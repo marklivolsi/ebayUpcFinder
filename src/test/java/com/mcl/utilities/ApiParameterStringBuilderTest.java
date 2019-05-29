@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,17 +20,17 @@ public class ApiParameterStringBuilderTest {
 
     @Test
     public void testBuildEncodedStringReturnsProperlyFormattedString() {
-        String expectedSort = sortString("key+1=val1&key%242=val2&key3=val%5E3");
+        String expectedSort = new StringUtils("key+1=val1&key%242=val2&key3=val%5E3").sortString();
         ApiParameterStringBuilder builder = new ApiParameterStringBuilder(testParameters);
         String formattedParameters = builder.buildEncodedString();
-        String actualSort = sortString(formattedParameters);
+        String actualSort = new StringUtils(formattedParameters).sortString();
         Assert.assertEquals(expectedSort, actualSort);
     }
 
-    private String sortString(String string) {
-        char[] chars = string.toCharArray();
-        Arrays.sort(chars);
-        return new String(chars);
-    }
+//    private String sortString(String string) {
+//        char[] chars = string.toCharArray();
+//        Arrays.sort(chars);
+//        return new String(chars);
+//    }
 
 }
