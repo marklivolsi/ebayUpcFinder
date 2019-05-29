@@ -13,7 +13,7 @@ public class XmlPropertyReaderTest {
     @Test
     public void testGetPropertyReturnsCorrectString() throws IOException {
         XmlPropertyReader reader = new XmlPropertyReader(xmlFilePath);
-        String value = reader.getProperty("FINDING_API_VERSION");
+        String value = reader.getProperty("SERVICE-VERSION");
         Assert.assertEquals("1.13.0", value);
     }
 
