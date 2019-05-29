@@ -25,6 +25,18 @@ public class ResponseTest {
     }
 
     @Test
+    public void testGetBodyAsStringReturnsCorrectString() throws IOException {
+        String expected = "{\n" +
+                "  \"userId\": 1,\n" +
+                "  \"id\": 1,\n" +
+                "  \"title\": \"delectus aut autem\",\n" +
+                "  \"completed\": false\n" +
+                "}";
+        String actual = testResponse.getBodyAsString();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void testGetBodyAsStringDoesNotReturnEmptyString() throws IOException {
         String testString = testResponse.getBodyAsString();
         Assert.assertNotEquals(0, testString.length());
