@@ -4,7 +4,8 @@ import java.io.File;
 
 public enum Configuration {
 
-    FINDING_API_RESOURCE_PATH ("src/main/resources/FindingApiParameters.xml");
+    FINDING_API_RESOURCE_PATH ("src/main/resources/FindingApiParameters.xml"),
+    SHOPPING_API_RESOURCE_PATH ("src/main/resources/ShoppingApiParameters.xml");
 
     private final String key;
 
