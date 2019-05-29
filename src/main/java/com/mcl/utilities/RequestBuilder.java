@@ -16,7 +16,7 @@ public class RequestBuilder {
         this.parameterMap = parameterMap;
     }
 
-    public Request build() throws MalformedURLException {
+    public Request buildRequest() throws MalformedURLException {
         String url = new UrlStringBuilder(baseUrl, parameterMap).getUrlString();
         return new Request(new URL(url));
     }
