@@ -1,5 +1,6 @@
-package com.mcl.requests;
+package com.mcl.utilities;
 
+import com.mcl.requests.Request;
 import com.mcl.utilities.UrlStringBuilder;
 
 import java.net.MalformedURLException;

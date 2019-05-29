@@ -1,5 +1,6 @@
 package com.mcl.utilities;
 
+import com.mcl.config.Configuration;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +13,7 @@ import java.util.Map;
 public class ApiParameterMapBuilderTest {
 
     private ArrayList<String> parameterList = new ArrayList<>();
-    private String resourcePath = "src/main/resources/FindingApiParameters.xml";
+    private String resourcePath = Configuration.FINDING_API_RESOURCE_PATH.get();
     private Map<String, String> expectedMap = new HashMap<>();
 
     @Before

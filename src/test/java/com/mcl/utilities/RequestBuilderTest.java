@@ -1,4 +1,4 @@
-package com.mcl.requests;
+package com.mcl.utilities;
 
 import com.mcl.config.Configuration;
 import com.mcl.utilities.StringUtils;
