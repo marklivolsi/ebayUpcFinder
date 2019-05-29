@@ -16,16 +16,14 @@ public class AsyncProcessor {
     }
 
     public <T extends Callable, V> Future<V> execute(T task) {
-        Future<V> f = executor.submit(task);
-        return f;
+        return executor.submit(task);
     }
 
     public <T extends Callable, V> ArrayList<Future<V>> execute(ArrayList<T> tasks) {
         ArrayList<Future<V>> futures = new ArrayList<>();
         if (tasks.size() > 0) {
             for (T task : tasks) {
-                Future<V> f = executor.submit(task);
-                futures.add(f);
+                futures.add(executor.submit(task));
             }
         }
         return futures;
