@@ -28,4 +28,13 @@ public class RequestBuilderTest {
     }
 
     // TODO: RequestBuilder tests
+
+    @Test
+    public void testAddParameterCorrectlyAddsNewParameterToMap() {
+        Map<String, String> expected = parameters;
+        expected.put("anotherParameter", "anotherValue");
+        RequestBuilder builder = new RequestBuilder(baseUrl, parameters);
+        builder.addParameter("anotherParameter", "anotherValue");
+        Assert.assertEquals(expected, builder.getParameterMap());
+    }
 }
