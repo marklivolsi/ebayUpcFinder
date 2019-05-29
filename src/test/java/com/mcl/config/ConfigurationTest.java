@@ -12,4 +12,9 @@ public class ConfigurationTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testResourceFileExistsReturnsTrueForValidFile() {
+        Assert.assertTrue(Configuration.FINDING_API_RESOURCE_PATH.resourceFileExists());
+    }
+
 }
