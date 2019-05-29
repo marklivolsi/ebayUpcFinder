@@ -11,6 +11,10 @@ public class AsyncProcessor {
         this.executor = Executors.newCachedThreadPool();
     }
 
+    public AsyncProcessor(int threads) {
+        this.executor = Executors.newFixedThreadPool(threads);
+    }
+
     public <T extends Callable, V> Future<V> execute(T task) {
         Future<V> f = executor.submit(task);
         return f;

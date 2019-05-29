@@ -14,13 +14,13 @@ public class UrlStringBuilder {
         buildUrlString();
     }
 
-    public String getUrlString() {
-        return urlString;
-    }
-
     private void buildUrlString() {
         String parameterString = new ApiParameterStringBuilder(parameters).buildEncodedString();
         urlString = base + "?" + parameterString;
+    }
+
+    public String getUrlString() {
+        return urlString;
     }
 
 }
