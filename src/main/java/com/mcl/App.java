@@ -1,10 +1,7 @@
 package com.mcl;
 
 import com.mcl.config.PropertyKeys;
-import com.mcl.models.FindingApiRoot;
-import com.mcl.models.Item;
-import com.mcl.models.NameValueList;
-import com.mcl.models.ShoppingApiRoot;
+import com.mcl.models.*;
 import com.mcl.requests.Request;
 import com.mcl.requests.Response;
 import com.mcl.utilities.*;
@@ -45,7 +42,17 @@ public class App {
 //
 //        processor.shutdown();
 
-//        String upc = new UserInput().getValidatedInput("Enter 12 or 13 digit upc", )
+//        String num = new UserInput().getValidatedInput("Enter a number: ", str -> str.matches("\\d+"));
+        String upc = "883929032273";
+        UpcProduct prod = new UpcProduct(upc);
+        prod.fetchAllData();
+//        for (Item item : prod.getFindingApiRoot().getFindCompletedItemsResponse().get(0).getSearchResult().get(0).getItem()) {
+//            System.out.println(item.getTitle());
+//        }
+        for (ShoppingApiRoot item : prod.getItemIdResponseMap().values()) {
+            System.out.println(item.getItem().getTitle());
+        }
+
 
     }
 
