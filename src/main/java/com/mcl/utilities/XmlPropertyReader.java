@@ -8,10 +8,16 @@ import java.util.Properties;
 
 public class XmlPropertyReader extends Properties {
 
-    public XmlPropertyReader(String xmlFilePath) throws IOException {
-        File file = new File(xmlFilePath);
-        FileInputStream is = new FileInputStream(file);
-        this.loadFromXML(is);
+    public XmlPropertyReader(String xmlFilePath) {
+        try {
+            File file = new File(xmlFilePath);
+            FileInputStream is = new FileInputStream(file);
+            this.loadFromXML(is);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            System.exit(0);
+        }
     }
 
     @Override
