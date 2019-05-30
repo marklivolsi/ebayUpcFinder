@@ -21,18 +21,18 @@ public class UrlStringBuilderTest {
 
     @Test
     public void testGetUrlStringReturnsCorrectString() {
-        String expected = new StringUtils("http://www.sampleurl.com/?key1=val1&key2=val2").sortString();
+        String expected = new StringUtils().sortString("http://www.sampleurl.com/?key1=val1&key2=val2");
         UrlStringBuilder builder = new UrlStringBuilder(base, parameters);
-        String actual = new StringUtils(builder.getUrlString()).sortString();
+        String actual = new StringUtils().sortString(builder.getUrlString());
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetUrlStringReturnsCorrectStringWithEmptyParameterMap() {
-        String expected = new StringUtils("http://www.sampleurl.com/?").sortString();
+        String expected = new StringUtils().sortString("http://www.sampleurl.com/?");
         Map<String, String> emptyParameters = new HashMap<>();
         UrlStringBuilder builder = new UrlStringBuilder(base, emptyParameters);
-        String actual = new StringUtils(builder.getUrlString()).sortString();
+        String actual = new StringUtils().sortString(builder.getUrlString());
         Assert.assertEquals(expected, actual);
     }
 

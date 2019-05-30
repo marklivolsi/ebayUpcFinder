@@ -58,7 +58,6 @@ public class UpcProduct {
             map.put(id, root);
         }
         itemIdResponseMap = map;
-
     }
 
     private ArrayList<Request> buildItemIdRequestList() throws IOException {

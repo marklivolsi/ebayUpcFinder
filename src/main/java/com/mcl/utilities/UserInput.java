@@ -17,7 +17,7 @@ public class UserInput {
         boolean valid;
         do {
             input = getInput(prompt);
-            valid = new StringUtils(input).validate(tester);
+            valid = new StringUtils().validate(input, tester);
         } while (!valid);
         return input;
     }

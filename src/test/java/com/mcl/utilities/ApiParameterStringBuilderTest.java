@@ -20,10 +20,10 @@ public class ApiParameterStringBuilderTest {
 
     @Test
     public void testBuildEncodedStringReturnsProperlyFormattedString() {
-        String expectedSort = new StringUtils("key+1=val1&key%242=val2&key3=val%5E3").sortString();
+        String expectedSort = new StringUtils().sortString("key+1=val1&key%242=val2&key3=val%5E3");
         ApiParameterStringBuilder builder = new ApiParameterStringBuilder(testParameters);
         String formattedParameters = builder.buildEncodedString();
-        String actualSort = new StringUtils(formattedParameters).sortString();
+        String actualSort = new StringUtils().sortString(formattedParameters);
         Assert.assertEquals(expectedSort, actualSort);
     }
 
