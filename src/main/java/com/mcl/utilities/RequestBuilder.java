@@ -21,6 +21,7 @@ public class RequestBuilder {
         return new Request(new URL(url));
     }
 
+    // may be unnecessary
     public void addParameter(String parameterName, String value) {
         parameterMap.put(parameterName, value);
     }
