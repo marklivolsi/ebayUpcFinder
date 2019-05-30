@@ -37,7 +37,4 @@ public enum PropertyKeys {
         return new XmlPropertyReader(xmlResourcePath).getProperty(key);
     }
 
-    public String getXmlResourcePath() {
-        return xmlResourcePath;
-    }
 }
