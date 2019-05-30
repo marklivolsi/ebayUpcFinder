@@ -2,6 +2,8 @@ package com.mcl.config;
 
 import com.mcl.utilities.XmlPropertyReader;
 
+import java.io.IOException;
+
 public enum PropertyKeys {
 
     FIND_API_APP_ID ("SECURITY-APPNAME"),
@@ -22,19 +24,17 @@ public enum PropertyKeys {
 
     private final String xmlResourcePath = "src/main/resources/Parameters.xml";
     private final String key;
-    private final String value;
 
     PropertyKeys(String key) {
         this.key = key;
-        this.value = new XmlPropertyReader(xmlResourcePath).getProperty(key);
     }
 
     public String getKey() {
         return key;
     }
 
-    public String getValue() {
-        return value;
+    public String getValue() throws IOException {
+        return new XmlPropertyReader(xmlResourcePath).getProperty(key);
     }
 
     public String getXmlResourcePath() {
