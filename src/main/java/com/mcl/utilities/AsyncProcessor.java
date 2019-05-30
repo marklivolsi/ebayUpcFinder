@@ -41,4 +41,8 @@ public class AsyncProcessor {
         return results;
     }
 
+    public void shutdown() {
+        executor.shutdown();
+    }
+
 }

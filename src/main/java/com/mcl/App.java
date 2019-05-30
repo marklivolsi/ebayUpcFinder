@@ -3,6 +3,7 @@ package com.mcl;
 import com.mcl.config.PropertyKeys;
 import com.mcl.models.FindingApiRoot;
 import com.mcl.models.Item;
+import com.mcl.models.ShoppingApiRoot;
 import com.mcl.requests.Request;
 import com.mcl.requests.Response;
 import com.mcl.utilities.*;
@@ -26,10 +27,18 @@ public class App {
         Response resp = processor.extract(future);
         FindingApiRoot e = new ResponseDeserializer().deserialize(resp, FindingApiRoot.class);
         List<Item> itemList = e.getFindCompletedItemsResponse().get(0).getSearchResult().get(0).getItem();
-        for (Item item : itemList) {
-            System.out.println(item.getItemId().get(0));
-            System.out.println(item.getTitle().get(0));
-        }
+        Item testItem = itemList.get(0);
+
+        String shopBaseUrl = PropertyKeys.SHOP_API_BASE_URL.getValue();
+        Map<String, String> shopParams = new DefaultParameterMapBuilder().getDefaultShoppingApiParameterMap();
+        shopParams.put("ItemId", testItem.getItemId().get(0));
+        Request shopRequest = new RequestBuilder(shopBaseUrl, shopParams).buildRequest();
+        Response shopResp = processor.extract(processor.execute(shopRequest));
+        ShoppingApiRoot s = new ResponseDeserializer().deserialize(shopResp, ShoppingApiRoot.class);
+        System.out.println(s.getItem().getDescription());
+
+
+        processor.shutdown();
     }
 
 }
