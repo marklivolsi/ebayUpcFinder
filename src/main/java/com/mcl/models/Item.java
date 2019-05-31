@@ -77,7 +77,7 @@ public class Item {
     @JsonProperty("subtitle")
     private List<String> subtitle = null;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     private ShoppingApiRoot itemDetailsRoot;
 

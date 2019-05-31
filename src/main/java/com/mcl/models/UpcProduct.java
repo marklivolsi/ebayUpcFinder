@@ -41,7 +41,7 @@ public class UpcProduct {
     }
 
     private void fetchCompletedListings(AsyncProcessor processor) throws ExecutionException, InterruptedException, IOException {
-        Map<String, String> params = new DefaultParameterMapBuilder().getDefaultFindingApiParameterMap();
+        Map<String, String> params = new ApiParameterMapBuilder().getDefaultFindingApiParameterMap();
         params.put("keywords", upc);
         String baseUrl = PropertyKeys.FIND_API_BASE_URL.getValue();
         Request request = new RequestBuilder(baseUrl, params).buildRequest();
@@ -69,7 +69,7 @@ public class UpcProduct {
         String baseUrl = PropertyKeys.SHOP_API_BASE_URL.getValue();
         List<String> ids = getItemIdList();
         for (String id : ids) {
-            Map<String, String> params = new DefaultParameterMapBuilder().getDefaultShoppingApiParameterMap();
+            Map<String, String> params = new ApiParameterMapBuilder().getDefaultShoppingApiParameterMap();
             params.put("ItemID", id);
             Request request = new RequestBuilder(baseUrl, params).buildRequest();
             requests.add(request);
@@ -95,7 +95,5 @@ public class UpcProduct {
     public Map<String, ShoppingApiRoot> getItemIdResponseMap() {
         return itemIdResponseMap;
     }
-
-    // TODO: merge item details
 
 }

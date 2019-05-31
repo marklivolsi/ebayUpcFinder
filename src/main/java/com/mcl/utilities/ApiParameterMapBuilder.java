@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DefaultParameterMapBuilder {
+public class ApiParameterMapBuilder {
 
     private Map<String, String> defaultFindingApiParameterMap = new HashMap<>();
     private Map<String, String> defaultShoppingApiParameterMap = new HashMap<>();
 
-    public DefaultParameterMapBuilder() throws IOException {
+    public ApiParameterMapBuilder() throws IOException {
         buildDefaultParameterMaps();
     }
 
