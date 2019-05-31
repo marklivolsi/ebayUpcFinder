@@ -30,6 +30,14 @@ public class UpcProduct {
     public void fetchAllData(AsyncProcessor processor) throws ExecutionException, InterruptedException, IOException {
         fetchCompletedListings(processor);
         executeAllItemIdRequests(processor);
+        mergeAllItemDetails();
+    }
+
+    private void mergeAllItemDetails() {
+        List<Item> itemList = findingApiRoot.getFindCompletedItemsResponse().get(0).getSearchResult().get(0).getItem();
+        for (Item item : itemList) {
+            item.mergeItemDetails(itemIdResponseMap);
+        }
     }
 
     private void fetchCompletedListings(AsyncProcessor processor) throws ExecutionException, InterruptedException, IOException {

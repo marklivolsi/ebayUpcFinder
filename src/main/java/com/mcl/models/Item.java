@@ -79,6 +79,16 @@ public class Item {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    private ShoppingApiRoot itemDetailsRoot;
+
+    public void mergeItemDetails(Map<String, ShoppingApiRoot> map) {
+        this.itemDetailsRoot = map.get(itemId.get(0));
+    }
+
+    public ShoppingApiRoot getItemDetailsRoot() {
+        return itemDetailsRoot;
+    }
+
     @JsonProperty("itemId")
     public List<String> getItemId() {
         return itemId;
