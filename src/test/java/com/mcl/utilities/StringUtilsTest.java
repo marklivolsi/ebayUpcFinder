@@ -29,12 +29,4 @@ public class StringUtilsTest {
         Assert.assertEquals("123abc", sorted);
     }
 
-    @Test
-    public void testRemoveInvalidStringsFromArrayReturnsCorrectArray() {
-        ArrayList<String> input = new ArrayList<>(Arrays.asList("1234", "9abc", "5678"));
-        ArrayList<String> expected = new ArrayList<>(Arrays.asList("1234", "5678"));
-        ArrayList<String> actual = new StringUtils().removeInvalidStringsFromArray(input, str -> str.matches("\\d+"));
-        Assert.assertEquals(expected, actual);
-    }
-
 }

@@ -27,27 +27,23 @@ public class UpcProduct {
         return upc;
     }
 
-    public void fetchAllData() throws ExecutionException, InterruptedException, IOException {
-        fetchCompletedListings();
-        executeAllItemIdRequests();
+    public void fetchAllData(AsyncProcessor processor) throws ExecutionException, InterruptedException, IOException {
+        fetchCompletedListings(processor);
+        executeAllItemIdRequests(processor);
     }
 
-    private void fetchCompletedListings() throws ExecutionException, InterruptedException, IOException {
-        AsyncProcessor processor = new AsyncProcessor(1);
+    private void fetchCompletedListings(AsyncProcessor processor) throws ExecutionException, InterruptedException, IOException {
         Map<String, String> params = new DefaultParameterMapBuilder().getDefaultFindingApiParameterMap();
         params.put("keywords", upc);
         String baseUrl = PropertyKeys.FIND_API_BASE_URL.getValue();
         Request request = new RequestBuilder(baseUrl, params).buildRequest();
         Response response = processor.extract(processor.execute(request));
         findingApiRoot = new ResponseDeserializer().deserialize(response, FindingApiRoot.class);
-        processor.shutdown();
     }
 
-    private void executeAllItemIdRequests() throws ExecutionException, InterruptedException, IOException {
-        AsyncProcessor processor = new AsyncProcessor(30);
+    private void executeAllItemIdRequests(AsyncProcessor processor) throws ExecutionException, InterruptedException, IOException {
         ArrayList<Response> responses = processor.extract(processor.execute(buildItemIdRequestList()));
         deserializeItemIdResponses(responses);
-        processor.shutdown();
     }
 
     private void deserializeItemIdResponses(ArrayList<Response> responses) throws IOException {
